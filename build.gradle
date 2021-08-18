@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// https://mvnrepository.com/artifact/org.mockito/mockito-core
+	//Mockito Core
+	testImplementation group: 'org.mockito', name: 'mockito-core', version: '3.11.2'
+	//Mockito Jupitor
+	// https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
+	testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.11.2'
+}
+
+test {
+	useJUnitPlatform()
+}
